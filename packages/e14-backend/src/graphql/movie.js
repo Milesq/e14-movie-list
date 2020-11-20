@@ -1,4 +1,5 @@
 const { gql } = require('apollo-server')
+const Movie = require('../model/movie')
 
 const schema = gql`
   type Movie {
@@ -9,13 +10,6 @@ const schema = gql`
   }
 `
 
-const resolver = () => [
-  {
-    title: 'hello',
-    genre: 'world',
-    year: 2000,
-    rating: 3,
-  },
-]
+const resolver = () => Movie.find()
 
 module.exports = { schema, resolver }
