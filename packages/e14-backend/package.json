@@ -9,7 +9,9 @@
     "serve": "nodemon",
     "start": "node src/main.js",
     "coverrage": "jest --coverage",
-    "infect": "stryker run"
+    "infect": "stryker run",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [],
   "author": "Milesq <wmilosz88@gmail.com>",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@types/jest": "^26.0.15",
+    "apollo-server-testing": "^2.19.0",
     "babel-eslint": "^10.1.0",
     "eslint": "7.13.0",
     "eslint-config-prettier": "^6.11.0",
