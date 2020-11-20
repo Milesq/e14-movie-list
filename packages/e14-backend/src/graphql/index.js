@@ -1,14 +1,17 @@
 const { gql } = require('apollo-server')
+const { schema: Movie, resolver: movie } = require('./movie')
 
 const schema = gql`
+  ${Movie}
+
   type Query {
-    my: String
+    movie: [Movie!]
   }
 `
 
 const resolvers = {
   Query: {
-    my: () => 'Hello from GraphQL World!',
+    movie,
   },
 }
 
