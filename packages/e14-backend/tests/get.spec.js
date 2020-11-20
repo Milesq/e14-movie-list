@@ -29,6 +29,6 @@ describe('List getting', () => {
 
     const res = await query({ query: moviesQuery })
 
-    expect(res.data.movie.title).toBe(res.body[0].title)
+    expect(res.data.movie[0].title).toBe(content[0].title)
   })
 })
