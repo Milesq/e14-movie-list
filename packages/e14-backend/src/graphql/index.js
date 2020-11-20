@@ -1,5 +1,5 @@
 const { gql } = require('apollo-server')
-const { schema: Movie, resolver: movie } = require('./movie')
+const { schema: Movie, resolver: movie } = require('./queries/movie')
 const {
   input: MovieInput,
   resolver: createMovie,
@@ -9,8 +9,10 @@ const schema = gql`
   ${Movie}
   ${MovieInput}
 
-  query: Query
-  mutation: Mutation
+  schema {
+    query: Query
+    mutation: Mutation
+  }
 
   type Query {
     movie: [Movie!]
