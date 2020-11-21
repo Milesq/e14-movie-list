@@ -10,7 +10,7 @@ describe('List getting', () => {
       {
         title: 'Revenge of the Sith',
         genre: 'Sci-Fi',
-        productionYear: 2005,
+        production: 2005,
         rating: 5,
       },
     ]
