@@ -11,7 +11,7 @@
     "lint:js": "eslint src --ext .js,.svelte",
     "lint:js:fix": "eslint src --ext .js,.svelte --fix",
     "lint:style": "stylelint src/*.{svelte,scss}",
-    "lint:style:fix": "stylelint src/*.{svelte,scss}",
+    "lint:style:fix": "stylelint src/*.{svelte,scss} --fix",
     "prettier": "prettier src --write",
     "postinstall": "node fix-parcel-plugin-svelte-#153.js"
   },
@@ -48,6 +48,7 @@
     "prettier-plugin-svelte": "1.4.1",
     "sass": "^1.29.0",
     "stylelint": "^13.7.2",
+    "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.18.0"
