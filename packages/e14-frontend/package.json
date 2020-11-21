@@ -8,7 +8,8 @@
     "serve": "parcel serve src/index.html --open",
     "build": "parcel build src/index.html --no-source-maps",
     "lint": "eslint src --ext .js,.svelte",
-    "lint:fix": "eslint src --ext .js,.svelte --fix && prettier src --write"
+    "lint:fix": "eslint src --ext .js,.svelte --fix && prettier src --write",
+    "postinstall": "node fix-parcel-plugin-svelte-#153.js"
   },
   "keywords": [],
   "author": "Milesq <wmilosz88@gmail.com>",
@@ -17,6 +18,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.7",
+    "@babel/generator": "^7.12.5",
+    "@babel/parser": "^7.12.7",
     "babel-eslint": "^10.1.0",
     "eslint": "7.13.0",
     "eslint-config-prettier": "^6.11.0",
