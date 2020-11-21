@@ -17,7 +17,11 @@ mongoose
     useCreateIndex: true,
   })
   .then(() => {
-    server.listen().then(({ port }) => {
-      console.log(`🚀 Server is listening on ${port}`)
-    })
+    server
+      .listen({
+        port: process.env.PORT || 4000,
+      })
+      .then(({ port }) => {
+        console.log(`🚀 Server is listening on ${port}`)
+      })
   })
