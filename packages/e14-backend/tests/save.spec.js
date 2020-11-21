@@ -57,4 +57,27 @@ describe('Saving system', () => {
 
     expect(Movie.prototype.save).not.toBeCalled()
   })
+
+  it('to reject duplicated movies', async () => {
+    await createMovie({
+      genre: 'Sci-Fi',
+      year: 1999,
+      title: 'Star Wars: The Phantom Menace',
+      rating: 5,
+    })
+
+    Movie.prototype.save = jest.fn(() => {
+      throw { code: 11000 }
+    })
+
+    const newMovie = await createMovie({
+      genre: 'Sci-Fi',
+      year: 1999,
+      title: 'Star Wars: The Phantom Menace',
+      rating: 5,
+    })
+
+    expect(newMovie.data).toBeNull()
+    expect(newMovie.errors).not.toBeNull()
+  })
 })
