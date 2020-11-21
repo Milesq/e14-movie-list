@@ -5,11 +5,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "test": "jest",
     "serve": "parcel serve src/index.html --open",
     "build": "parcel build src/index.html --no-source-map",
     "lint": "yarn lint:js:fix && yarn lint:style:fix && yarn prettier",
-    "lint:js": "eslint src --ext .js,.svelte",
-    "lint:js:fix": "eslint src --ext .js,.svelte --fix",
+    "lint:js": "eslint . --ext .js,.svelte",
+    "lint:js:fix": "eslint . --ext .js,.svelte --fix",
     "lint:style": "stylelint src/*.{svelte,scss}",
     "lint:style:fix": "stylelint src/*.{svelte,scss} --fix",
     "prettier": "prettier src --write",
@@ -28,17 +29,23 @@
     }
   },
   "dependencies": {
+    "jest": "^26.6.3",
     "svelte": "^3.29.7"
   },
   "devDependencies": {
     "@babel/core": "^7.12.7",
     "@babel/generator": "^7.12.5",
     "@babel/parser": "^7.12.7",
+    "@babel/preset-env": "^7.12.7",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/svelte": "^3.0.0",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.3",
     "eslint": "7.14.0",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jest": "^24.1.3",
     "eslint-plugin-svelte3": "^2.7.3",
     "husky": "^4.3.0",
     "lint-staged": "^10.5.1",
@@ -51,6 +58,7 @@
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
-    "stylelint-scss": "^3.18.0"
+    "stylelint-scss": "^3.18.0",
+    "svelte-jester": "^1.1.5"
   }
 }
