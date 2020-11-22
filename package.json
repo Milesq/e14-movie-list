@@ -1,0 +1,7 @@
+{
+  "name": "e14-implementation",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}
