@@ -1,34 +1,12 @@
 <main>
-  <h1>Hello {name}!</h1>
-  <p>
-    Visit the
-    <a href="https://svelte.dev/tutorial">Svelte tutorial</a>
-    to learn how to build Svelte apps.
-  </p>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Hello World
+      </h1>
+      <p class="subtitle">
+        My first website with <strong>Bulma</strong>!
+      </p>
+    </div>
+  </section>
 </main>
-
-<script>
-  export let name;
-</script>
-
-<style lang="scss">
-  main {
-    max-width: 240px;
-    padding: 1em;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  h1 {
-    color: #ff3e00;
-    font-size: 4em;
-    font-weight: 100;
-    text-transform: uppercase;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
-  }
-</style>
