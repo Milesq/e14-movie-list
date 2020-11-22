@@ -7,6 +7,6 @@
   "arrowParens": "avoid",
   "printWidth": 80,
   "svelteStrictMode": true,
-  "svelteSortOrder": "scripts-markup-styles",
+  "svelteSortOrder": "markup-scripts-styles",
   "plugins": ["prettier-plugin-svelte"]
 }

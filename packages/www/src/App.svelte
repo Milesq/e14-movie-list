@@ -1,7 +1,3 @@
-<script>
-  export let name;
-</script>
-
 <main>
   <h1>Hello {name}!</h1>
   <p>
@@ -10,6 +6,10 @@
     to learn how to build Svelte apps.
   </p>
 </main>
+
+<script>
+  export let name;
+</script>
 
 <style lang="scss">
   main {
