@@ -15,12 +15,6 @@
   },
   "keywords": [],
   "author": "Milesq <wmilosz88@gmail.com>",
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.js": "eslint"
   },
@@ -32,8 +26,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
     "@types/jest": "^26.0.15",
     "apollo-server-testing": "^2.19.0",
     "babel-eslint": "^10.1.0",
