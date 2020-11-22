@@ -1,6 +1,9 @@
 {
   "name": "e14-implementation",
   "private": true,
+  "scripts": {
+    "postinstall": "lerna bootstrap"
+  },
   "devDependencies": {
     "lerna": "^3.22.1"
   }
