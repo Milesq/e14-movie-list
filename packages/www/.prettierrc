@@ -6,7 +6,7 @@
   "trailingComma": "es5",
   "arrowParens": "avoid",
   "printWidth": 80,
-  "svelteStrictMode": true,
+  "svelteStrictMode": false,
   "svelteSortOrder": "markup-scripts-styles",
   "plugins": ["prettier-plugin-svelte"]
 }

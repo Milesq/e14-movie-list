@@ -1,6 +1,6 @@
 <!-- https://codepen.io/oliviale/pen/vPvvyr?editors=1100 -->
 <div class="button-pulse" on:click>
-  <div class="pulsing"></div>
+  <div class="pulsing" />
   <button>Sprawdź to!</button>
 </div>
 

@@ -1,10 +1,15 @@
-<form on:submit|preventDefault={submit} autocomplete="off" >
+<form on:submit|preventDefault={submit} autocomplete="off">
   <div class="field">
     <label class="label has-text-white" for="title">Tytuł</label>
     <div class="control has-icons-left">
-      <input bind:value={title} class="input" type="text" id="title" placeholder="Tytuł Filmu" />
+      <input
+        bind:value={title}
+        class="input"
+        type="text"
+        id="title"
+        placeholder="Tytuł Filmu" />
 
-      <span class="icon is-left"> <i class="fas fa-heading"></i> </span>
+      <span class="icon is-left"> <i class="fas fa-heading" /> </span>
     </div>
   </div>
 
@@ -43,9 +48,7 @@
   <div class="label has-text-white">Ocena</div>
   <Rate afterRate={newRate => (rating = newRate)} />
 
-  <div>
-    <button class="button is-link is-pulled-right">Dodaj film</button>
-  </div>
+  <div><button class="button is-link is-pulled-right">Dodaj film</button></div>
 </form>
 
 <script>
@@ -57,19 +60,22 @@
   let title, selectedGenre, year, rating;
 
   async function submit() {
-    req(gql`
+    const createMovie = gql`
       mutation($movie: MovieInput!) {
         createMovie(input: $movie) {
           title
         }
-      }`, {
-        movie: {
-          title,
-          genre: selectedGenre,
-          year,
-          rating,
-        }
-      })
+      }
+    `;
+
+    req(createMovie, {
+      movie: {
+        title,
+        genre: selectedGenre,
+        year,
+        rating,
+      },
+    });
   }
 </script>
 
