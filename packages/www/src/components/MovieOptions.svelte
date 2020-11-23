@@ -31,7 +31,7 @@
           <article class="tile is-child notification is-warning">
             <p class="title">Film Dnia</p>
             <p class="subtitle">
-              Zapoznaj się z filmem doceniomym przez krytyków!
+              Zapoznaj się z filmem docenionym przez krytyków!
             </p>
             <figure class="image is-4by3">
               <img src="https://picsum.photos/400/300" alt="" />
