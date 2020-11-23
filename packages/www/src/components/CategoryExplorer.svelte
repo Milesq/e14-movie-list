@@ -1,5 +1,5 @@
 <div>
-  {#each $getGenres as genre}
+  {#each $genres as genre}
     <div
       on:click={showGenre(genre)}
       class={`mx-2 tag is-link is-clickable is-medium ${getRandomColorClass()}`}>
@@ -9,7 +9,7 @@
 </div>
 
 <script>
-  import getGenres from '../utils/getGenres';
+  import genres from '../utils/getGenres';
 
   const random = (min, max) => Math.round(Math.random() * (max - min) + min);
 

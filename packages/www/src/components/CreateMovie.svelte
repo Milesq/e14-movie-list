@@ -1,4 +1,4 @@
-<form on:submit|preventDefault={submit} autocomplete="off">
+<form on:submit|preventDefault={submit} bind:this={form} autocomplete="off">
   <div class="field">
     <label class="label has-text-white" for="title">Tytuł</label>
     <div class="control has-icons-left">
@@ -18,7 +18,8 @@
       <label class="label has-text-white" for="genre">Gatunek</label>
       <div class="control has-text-black">
         <Select
-          items={$getGenres}
+          bind:this={select}
+          items={$genres}
           bind:selectedValue={selectedGenre}
           isCreatable={true}
           inputClassName="input"
@@ -55,9 +56,9 @@
   import Rate from 'svelte-rate-it/Rate.svelte';
   import Select from 'svelte-select';
   import req, { gql } from '../utils/graphqlClient';
-  import getGenres from '../utils/getGenres';
+  import genres from '../utils/getGenres';
 
-  let title, selectedGenre, year, rating;
+  let form, select, title, selectedGenre, year, rating;
 
   async function submit() {
     const createMovie = gql`
@@ -71,11 +72,14 @@
     req(createMovie, {
       movie: {
         title,
-        genre: selectedGenre,
+        genre: selectedGenre.value,
         year,
         rating,
       },
     });
+
+    form.reset();
+    select.handleClear();
   }
 </script>
 
