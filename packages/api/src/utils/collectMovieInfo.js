@@ -15,13 +15,17 @@ const getApiURL = params => {
 }
 
 module.exports = async title => {
-  const url = getApiURL([
-    ['t', title],
-    ['plot', 'full'],
-  ])
+  try {
+    const url = getApiURL([
+      ['t', title],
+      ['plot', 'full'],
+    ])
 
-  const { data } = await axios.get(url)
-  if (data.Response !== 'True') return {}
+    const { data } = await axios.get(url)
+    if (data.Response !== 'True') throw new Error("movie wasn't found")
 
-  return lowerCaseKeys(pick(data, ['Plot', 'Poster', 'Awards']))
+    return lowerCaseKeys(pick(data, ['Plot', 'Poster', 'Awards']))
+  } catch {
+    return {}
+  }
 }

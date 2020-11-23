@@ -1,3 +1,4 @@
+process.env.OMDB_KEY = 'abc'
 const { default: mockingoose } = require('mockingoose')
 const { gql } = require('apollo-server')
 const { createTestClient } = require('apollo-server-testing')
@@ -29,7 +30,7 @@ const content = [
 describe('List getting', () => {
   let query
   beforeEach(() => {
-    query = createTestClient(server)
+    query = createTestClient(server).query
     mockingoose(Movie).toReturn(content)
   })
 

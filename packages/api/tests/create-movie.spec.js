@@ -1,3 +1,4 @@
+process.env.OMDB_KEY = 'abc'
 const { gql } = require('apollo-server')
 const { createTestClient } = require('apollo-server-testing')
 const Movie = require('../src/model/movie')
