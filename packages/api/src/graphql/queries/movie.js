@@ -1,4 +1,5 @@
 const { gql } = require('apollo-server')
+const shuffle = require('lodash.shuffle')
 const Movie = require('../../model/movie')
 
 const schema = gql`
@@ -18,11 +19,12 @@ const schema = gql`
   enum Direction {
     ASC
     DESC
+    RANDOM
   }
 `
 
 const resolver = async (parent, { limit, sortBy, order = 'ASC' }) => {
-  const movies = await Movie.find()
+  let movies = await Movie.find()
   const orderFn = {
     ASC: (a, b) => a > b,
     DESC: (a, b) => a < b,
@@ -39,6 +41,10 @@ const resolver = async (parent, { limit, sortBy, order = 'ASC' }) => {
       if (orderFn[order](a, b)) return 1
       return 0
     })
+  }
+
+  if (order === 'RANDOM') {
+    movies = shuffle(movies)
   }
 
   if (limit) {
