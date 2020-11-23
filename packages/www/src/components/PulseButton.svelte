@@ -8,7 +8,7 @@
   * {
     &:before,
     &:after {
-      content: "";
+      content: '';
       position: absolute;
     }
   }
@@ -19,7 +19,7 @@
     border: 3px solid #fff;
     border-radius: 50px;
     padding: 0.8rem 2rem;
-    font: 24px "Margarine", sans-serif;
+    font: 24px 'Margarine', sans-serif;
     outline: none;
     cursor: pointer;
     position: relative;

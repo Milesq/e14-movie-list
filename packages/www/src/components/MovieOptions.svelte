@@ -5,7 +5,10 @@
         <div class="tile is-parent is-vertical">
           <article class="tile is-child notification is-primary">
             <p class="title">Dodawanie Filmów</p>
-            <p class="subtitle">Twojego filmu nie ma w naszej bazie? Dodaj go!</p>
+            <p class="subtitle">
+              Twojego filmu nie ma w naszej bazie? Dodaj go!
+            </p>
+            <CreateMovie />
           </article>
           <article class="tile is-child notification is-info">
             <p class="title">Wyszukaj</p>
@@ -15,9 +18,11 @@
         <div class="tile is-parent">
           <article class="tile is-child notification is-warning">
             <p class="title">Film Dnia</p>
-            <p class="subtitle">Zapoznaj się z filmem doceniomym przez krytyków!</p>
+            <p class="subtitle">
+              Zapoznaj się z filmem doceniomym przez krytyków!
+            </p>
             <figure class="image is-4by3">
-              <img src="https://picsum.photos/400/300" alt="">
+              <img src="https://picsum.photos/400/300" alt="" />
             </figure>
           </article>
         </div>
@@ -25,6 +30,10 @@
     </div>
   </div>
 </div>
+
+<script>
+  import CreateMovie from './CreateMovie.svelte';
+</script>
 
 <style lang="scss">
   .movies {
