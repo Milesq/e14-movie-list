@@ -18,6 +18,7 @@
             <CategoryExplorer />
 
             <button
+              on:click={showAll}
               class="button is-transitioned is-pulled-right	mt-3 is-capitalized is-outlined is-inverted is-success">Przeglądaj
               wszystkie</button>
           </article>
@@ -39,8 +40,13 @@
 </div>
 
 <script>
+  import { push } from 'svelte-spa-router';
   import CreateMovie from './CreateMovie.svelte';
   import CategoryExplorer from './CategoryExplorer.svelte';
+
+  function showAll() {
+    push('/movies');
+  }
 </script>
 
 <style lang="scss">
