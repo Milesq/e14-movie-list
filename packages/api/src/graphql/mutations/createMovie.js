@@ -26,7 +26,7 @@ async function resolver(parent, args) {
   }
 
   try {
-    await new Movie(args).save()
+    await new Movie(args.input).save()
   } catch (err) {
     if (err.code !== 11000) throw err
 
