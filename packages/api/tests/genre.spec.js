@@ -16,15 +16,15 @@ const content = [
 ]
 
 describe('List getting', () => {
+  let query
   beforeEach(() => {
+    query = createTestClient(server)
     mockingoose(Movie).toReturn(content)
   })
 
   afterEach(mockingoose.resetAll)
 
   it('works', async () => {
-    const { query } = createTestClient(server)
-
     const moviesQuery = gql`
       query {
         genre {

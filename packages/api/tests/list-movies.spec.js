@@ -27,15 +27,15 @@ const content = [
 ]
 
 describe('List getting', () => {
+  let query
   beforeEach(() => {
+    query = createTestClient(server)
     mockingoose(Movie).toReturn(content)
   })
 
   afterEach(mockingoose.resetAll)
 
   it('works', async () => {
-    const { query } = createTestClient(server)
-
     const moviesQuery = gql`
       query {
         movie {
@@ -74,8 +74,6 @@ describe('List getting', () => {
 
       mockingoose(Movie).toReturn(content)
 
-      const { query } = createTestClient(server)
-
       const moviesQuery = gql`
         query {
           movie(limit: 2) {
@@ -90,8 +88,6 @@ describe('List getting', () => {
     })
 
     it('`sortBy` works', async () => {
-      const { query } = createTestClient(server)
-
       const moviesQuery = gql`
         query {
           movie(sortBy: YEAR) {
@@ -109,8 +105,6 @@ describe('List getting', () => {
     })
 
     it('`sortBy` descending works', async () => {
-      const { query } = createTestClient(server)
-
       const moviesQuery = gql`
         query {
           movie(sortBy: YEAR, order: DESC) {
@@ -128,8 +122,6 @@ describe('List getting', () => {
     })
 
     it('random works', async () => {
-      const { query } = createTestClient(server)
-
       const moviesQuery = gql`
         query {
           movie(order: RANDOM) {
