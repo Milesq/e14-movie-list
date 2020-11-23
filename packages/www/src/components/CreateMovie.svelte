@@ -57,6 +57,7 @@
   import Select from 'svelte-select';
   import req, { gql } from '../utils/graphqlClient';
   import genres from '../utils/getGenres';
+  import { tick } from 'svelte';
 
   let form, select, title, selectedGenre, year, rating;
 
@@ -78,6 +79,7 @@
       },
     });
 
+    genres.create(selectedGenre.value);
     form.reset();
     select.handleClear();
   }

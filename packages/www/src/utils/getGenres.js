@@ -1,7 +1,7 @@
-import { readable } from 'svelte/store';
+import { writable } from 'svelte/store';
 import req, { gql } from './graphqlClient';
 
-export default readable([], async set => {
+async function fetchGenres(set) {
   const { genre } = await req(gql`
     query {
       genre {
@@ -11,4 +11,13 @@ export default readable([], async set => {
   `);
 
   set(genre.map(({ title }) => title));
-});
+}
+
+const { subscribe, update } = writable([], fetchGenres);
+
+export default {
+  subscribe,
+  create(title) {
+    update(arr => [...arr, title]);
+  },
+};
