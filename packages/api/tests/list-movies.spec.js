@@ -33,7 +33,7 @@ describe('List getting', () => {
   })
 })
 
-describe('movies with limitations', () => {
+describe('movies with parameters', () => {
   it('`limit` works', async () => {
     const content = [
       {
