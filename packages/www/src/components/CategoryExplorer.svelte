@@ -1,7 +1,7 @@
 <div>
   {#each $genres as genre}
     <div
-      use:link={`/category/genre`}
+      use:link={`/movies/${genre}`}
       class={`mx-2 tag is-link is-clickable is-medium ${getRandomColorClass()}`}>
       {genre}
     </div>

@@ -3,10 +3,10 @@
 <script>
   import Router from 'svelte-spa-router';
   import Home from './pages/Home.svelte';
-  import Category from './pages/Category.svelte';
+  import ShowMovies from './pages/ShowMovies.svelte';
 
   const routes = {
     '/': Home,
-    '/category/:category': Category,
+    '/movies/:category?': ShowMovies,
   };
 </script>
