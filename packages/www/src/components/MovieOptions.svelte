@@ -13,6 +13,7 @@
           <article class="tile is-child notification is-info">
             <p class="title">Wyszukaj</p>
             <p class="subtitle">Przeglądaj filmy po kategoriach!</p>
+            <CategoryExplorer />
           </article>
         </div>
         <div class="tile is-parent">
@@ -33,6 +34,7 @@
 
 <script>
   import CreateMovie from './CreateMovie.svelte';
+  import CategoryExplorer from './CategoryExplorer.svelte';
 </script>
 
 <style lang="scss">

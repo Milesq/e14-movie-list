@@ -10,5 +10,5 @@ export default readable([], async set => {
     }
   `);
 
-  set(genre.map(({ title }) => title))
+  set(genre.map(({ title }) => title));
 });
