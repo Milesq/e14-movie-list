@@ -12,7 +12,7 @@
           </article>
           <article class="tile is-child notification is-info">
             <p class="title">Wyszukaj</p>
-            <p class="subtitle">Przeglądaj filmy po kategoriach!</p>
+            <p class="subtitle">Przeglądaj filmy według wybranej kategori lub wszystkie na raz!</p>
             <CategoryExplorer />
           </article>
         </div>
