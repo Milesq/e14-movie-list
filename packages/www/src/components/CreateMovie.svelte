@@ -13,7 +13,7 @@
       <label class="label has-text-white" for="genre">Gatunek</label>
       <div class="control">
         <AutoComplete
-          items="{genres}"
+          items="{$getGenres}"
           bind:selectedItem="{selectedGenre}"
           inputClassName="input"
           inputId="genre"
@@ -51,27 +51,14 @@
 </form>
 
 <script>
-  import { onMount } from 'svelte';
   import Rate from 'svelte-rate-it/Rate.svelte';
   import AutoComplete from 'simple-svelte-autocomplete';
-  import req, { gql } from '../utils/graphqlClient';
+  import getGenres from '../utils/getGenres';
 
   let year,
     selectedGenre,
-    rating,
-    genres = [];
+    rating;
 
-    onMount(() => {
-      req(gql`
-          query {
-            genre {
-              title
-            }
-          }
-        `).then(({ genre }) => {
-          genres = genre.map(genre => genre.title);
-        })
-    });
 
   function submit() {}
 </script>
