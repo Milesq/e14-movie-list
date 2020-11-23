@@ -3,6 +3,7 @@ const { gql } = require('apollo-server')
 const { createTestClient } = require('apollo-server-testing')
 const server = require('../src/server')
 const Movie = require('../src/model/movie')
+jest.mock('lodash.shuffle')
 
 const content = [
   {
@@ -124,6 +125,24 @@ describe('List getting', () => {
       movie = movie.map(pick('year'))
 
       expect(() => movie.reduce(createisMonotonicReducer(desc))).not.toThrow('')
+    })
+
+    it('random works', async () => {
+      const { query } = createTestClient(server)
+
+      const moviesQuery = gql`
+        query {
+          movie(order: RANDOM) {
+            title
+          }
+        }
+      `
+
+      const {
+        data: { movie },
+      } = await query({ query: moviesQuery })
+
+      expect(movie[0].title).toBe('RANDOMIZED')
     })
   })
 })
