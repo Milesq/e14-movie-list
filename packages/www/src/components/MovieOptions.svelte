@@ -35,4 +35,9 @@
       margin: auto 1rem;
     }
   }
+
+  img {
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px -2px black;
+  }
 </style>
