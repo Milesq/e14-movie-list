@@ -19,8 +19,12 @@
 
             <button
               on:click={showAll}
-              class="button is-transitioned is-pulled-right	mt-3 is-capitalized is-outlined is-inverted is-success">Przeglądaj
-              wszystkie</button>
+              class="button is-transitioned is-pulled-right	mt-3 is-capitalized is-outlined is-inverted is-success">
+              <span>Przeglądaj wszystkie</span>
+              <span class="icon">
+                <i class="fas fa-arrow-right"></i>
+              </span>
+            </button>
           </article>
         </div>
         <div class="tile is-parent">

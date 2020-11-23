@@ -51,8 +51,12 @@
 
   <div>
     <button
-      class="is-transitioned button is-link is-outlined is-inverted is-capitalized is-pulled-right">Dodaj
-      film</button>
+      class="is-transitioned button is-success is-outlined is-inverted is-capitalized is-pulled-right">
+      <span>Dodaj film</span>
+      <span class="icon">
+        <i class="fas fa-plus"></i>
+      </span>
+    </button>
   </div>
 </form>
 
@@ -61,7 +65,6 @@
   import Select from 'svelte-select';
   import req, { gql } from '../utils/graphqlClient';
   import genres from '../utils/getGenres';
-  import { tick } from 'svelte';
 
   let form, select, title, selectedGenre, year, rating;
 
