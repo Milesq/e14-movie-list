@@ -14,6 +14,11 @@ const schema = gql`
     GENRE
     YEAR
   }
+
+  enum Direction {
+    ASC
+    DESC
+  }
 `
 
 const resolver = () => Movie.find()
