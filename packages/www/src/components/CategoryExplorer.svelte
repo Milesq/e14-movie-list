@@ -2,7 +2,7 @@
   {#each $getGenres as genre}
     <div
       on:click={showGenre(genre)}
-      class={`tag is-link is-clickable is-medium ${getRandomColorClass()}`}>
+      class={`mx-2 tag is-link is-clickable is-medium ${getRandomColorClass()}`}>
       {genre}
     </div>
   {/each}
