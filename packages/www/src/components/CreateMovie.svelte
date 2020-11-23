@@ -51,11 +51,27 @@
 </form>
 
 <script>
+  import { onMount } from 'svelte';
   import Rate from 'svelte-rate-it/Rate.svelte';
   import AutoComplete from 'simple-svelte-autocomplete';
+  import req, { gql } from '../utils/graphqlClient';
 
-  let year, selectedGenre, rating;
-  const genres = ['sci-fi', 'przygodowy'];
+  let year,
+    selectedGenre,
+    rating,
+    genres = [];
+
+    onMount(() => {
+      req(gql`
+          query {
+            genre {
+              title
+            }
+          }
+        `).then(({ genre }) => {
+          genres = genre.map(genre => genre.title);
+        })
+    });
 
   function submit() {}
 </script>

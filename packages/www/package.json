@@ -24,6 +24,8 @@
   },
   "dependencies": {
     "bulma": "^0.9.1",
+    "graphql": "^15.4.0",
+    "graphql-request": "^3.3.0",
     "simple-svelte-autocomplete": "^1.2.4",
     "svelte": "^3.29.7",
     "svelte-rate-it": "^1.0.1"
