@@ -1,5 +1,5 @@
-const { gql } = require('apollo-server');
-const Movie = require('../../model/movie');
+const { gql } = require('apollo-server')
+const Movie = require('../../model/movie')
 
 const schema = gql`
   type Genre {
