@@ -1,6 +1,7 @@
 const { gql, UserInputError } = require('apollo-server')
 const { default: ow } = require('ow')
 const Movie = require('../../model/movie')
+const collectMovieInfo = require('../../utils/collectMovieInfo')
 
 const input = gql`
   input MovieInput {
@@ -26,7 +27,8 @@ async function resolver(parent, args) {
   }
 
   try {
-    await new Movie(args.input).save()
+    const additional = await collectMovieInfo(args.input.title)
+    await new Movie({ ...args.input, ...additional }).save()
   } catch (err) {
     if (err.code !== 11000) throw err
 

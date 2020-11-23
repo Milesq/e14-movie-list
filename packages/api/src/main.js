@@ -1,13 +1,7 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 const server = require('./server')
-
-/**
- * @param {String} err
- */
-function throwError(err) {
-  throw new Error(err)
-}
+const throwError = require('./utils/throwError')
 
 mongoose
   .connect(process.env.MONGOURL || throwError('MONGOURL is not defined'), {
