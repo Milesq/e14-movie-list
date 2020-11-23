@@ -8,6 +8,9 @@ const schema = gql`
     genre: String!
     rating: Int!
     year: Int!
+    plot: String
+    poster: String
+    awards: String
   }
 
   enum MovieField {
