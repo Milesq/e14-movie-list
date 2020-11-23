@@ -1,7 +1,7 @@
 <div>
   {#each $genres as genre}
     <div
-      on:click={showGenre(genre)}
+      use:link={`/category/genre`}
       class={`mx-2 tag is-link is-clickable is-medium ${getRandomColorClass()}`}>
       {genre}
     </div>
@@ -10,6 +10,7 @@
 
 <script>
   import genres from '../utils/getGenres';
+  import { push } from 'svelte-spa-router';
 
   const random = (min, max) => Math.round(Math.random() * (max - min) + min);
 
@@ -33,7 +34,9 @@
     return classes;
   }
 
-  function showGenre(genre) {
-    console.log(genre);
+  function link(node, href) {
+    node.addEventListener('click', () => {
+      push(href)
+    });
   }
 </script>
