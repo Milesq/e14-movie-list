@@ -8,6 +8,12 @@ const schema = gql`
     rating: Int!
     year: Int!
   }
+
+  enum MovieField {
+    TITLE
+    GENRE
+    YEAR
+  }
 `
 
 const resolver = () => Movie.find()
