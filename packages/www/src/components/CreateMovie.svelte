@@ -1,8 +1,8 @@
-<form on:submit|preventDefault="{submit}">
+<form on:submit|preventDefault={submit} autocomplete="off" >
   <div class="field">
     <label class="label has-text-white" for="title">Tytuł</label>
     <div class="control has-icons-left">
-      <input class="input" type="text" id="title" placeholder="Tytuł Filmu" />
+      <input bind:value={title} class="input" type="text" id="title" placeholder="Tytuł Filmu" />
 
       <span class="icon is-left"> <i class="fas fa-heading"></i> </span>
     </div>
@@ -11,10 +11,11 @@
   <div class="field">
     <div class="field">
       <label class="label has-text-white" for="genre">Gatunek</label>
-      <div class="control">
-        <AutoComplete
-          items="{$getGenres}"
-          bind:selectedItem="{selectedGenre}"
+      <div class="control has-text-black">
+        <Select
+          items={$getGenres}
+          bind:selectedValue={selectedGenre}
+          isCreatable={true}
           inputClassName="input"
           inputId="genre"
           placeholder="Gatunek Filmu - wybierze jeden z listy lub dodaj swój" />
@@ -29,7 +30,7 @@
         class="input is-error"
         min="1900"
         type="number"
-        bind:value="{year}"
+        bind:value={year}
         placeholder="Rok wydania" />
     </div>
     {#if year < 1900}
@@ -40,7 +41,7 @@
   </div>
 
   <div class="label has-text-white">Ocena</div>
-  <Rate afterRate="{newRate => (rating = newRate)}" />
+  <Rate afterRate={newRate => (rating = newRate)} />
 
   <div>
     <button class="button is-link is-pulled-right">Dodaj film</button>
@@ -49,12 +50,27 @@
 
 <script>
   import Rate from 'svelte-rate-it/Rate.svelte';
-  import AutoComplete from 'simple-svelte-autocomplete';
+  import Select from 'svelte-select';
+  import req, { gql } from '../utils/graphqlClient';
   import getGenres from '../utils/getGenres';
 
-  let year, selectedGenre, rating;
+  let title, selectedGenre, year, rating;
 
-  function submit() {}
+  async function submit() {
+    req(gql`
+      mutation($movie: MovieInput!) {
+        createMovie(input: $movie) {
+          title
+        }
+      }`, {
+        movie: {
+          title,
+          genre: selectedGenre,
+          year,
+          rating,
+        }
+      })
+  }
 </script>
 
 <style>

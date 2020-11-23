@@ -1,8 +1,8 @@
 <div>
   {#each $getGenres as genre}
     <div
-      on:click="{showGenre(genre)}"
-      class="{`tag is-link is-clickable is-medium ${getRandomColorClass()}`}">
+      on:click={showGenre(genre)}
+      class={`tag is-link is-clickable is-medium ${getRandomColorClass()}`}>
       {genre}
     </div>
   {/each}

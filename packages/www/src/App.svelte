@@ -7,12 +7,12 @@
       <h2 class="subtitle is-capitalized is-size-4">Największa baza filmów!</h2>
 
       <div class="pulse-button__wrapper">
-        <PulseButton on:click="{scroll}" />
+        <PulseButton on:click={scroll} />
       </div>
     </div>
   </section>
 
-  <div bind:this="{scrollTarget}">
+  <div bind:this={scrollTarget}>
     <MovieOptions />
   </div>
 
