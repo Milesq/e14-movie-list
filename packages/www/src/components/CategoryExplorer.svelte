@@ -36,7 +36,7 @@
 
   function link(node, href) {
     node.addEventListener('click', () => {
-      push(href)
+      push(href);
     });
   }
 </script>

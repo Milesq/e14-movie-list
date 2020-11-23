@@ -1,12 +1,9 @@
-<div>
-  ok
-</div>
+<div>ok</div>
 
 <script>
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte';
 
-
-  export let params = {}
+  export let params = {};
 
   onMount(() => console.log(params));
 </script>

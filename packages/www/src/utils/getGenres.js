@@ -14,7 +14,9 @@ async function fetchGenres(set) {
 }
 
 // https://github.com/sveltejs/svelte/issues/4765
-const { subscribe, update } = writable([], set => { fetchGenres(set) });
+const { subscribe, update } = writable([], set => {
+  fetchGenres(set);
+});
 
 export default {
   subscribe,

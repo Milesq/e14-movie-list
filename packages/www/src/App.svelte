@@ -8,5 +8,5 @@
   const routes = {
     '/': Home,
     '/category/:category': Category,
-  }
+  };
 </script>
