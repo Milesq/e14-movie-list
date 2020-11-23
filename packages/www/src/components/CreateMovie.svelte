@@ -49,7 +49,7 @@
   <div class="label has-text-white">Ocena</div>
   <Rate afterRate={newRate => (rating = newRate)} />
 
-  <div><button class="button is-link is-pulled-right">Dodaj film</button></div>
+  <div><button class="button is-link is-outlined is-inverted is-capitalized is-pulled-right">Dodaj film</button></div>
 </form>
 
 <script>

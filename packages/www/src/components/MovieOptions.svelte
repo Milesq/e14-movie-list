@@ -14,6 +14,8 @@
             <p class="title">Wyszukaj</p>
             <p class="subtitle">Przeglądaj filmy według wybranej kategori lub wszystkie na raz!</p>
             <CategoryExplorer />
+
+            <button class="button is-pulled-right	mt-3 is-capitalized is-outlined is-inverted is-success">Przeglądaj wszystkie</button>
           </article>
         </div>
         <div class="tile is-parent">
