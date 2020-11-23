@@ -21,8 +21,6 @@
       'dark',
       'white',
       'primary',
-      'link',
-      'info',
       'success',
       'warning',
       'danger',
