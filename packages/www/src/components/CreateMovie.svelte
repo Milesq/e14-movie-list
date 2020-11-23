@@ -42,11 +42,8 @@
   <div class="label has-text-white">Ocena</div>
   <Rate afterRate="{newRate => (rating = newRate)}" />
 
-  <div class="level">
-    <div class="level-left"></div>
-    <div class="level-right">
-      <button class="button is-link level-item">Dodaj film</button>
-    </div>
+  <div>
+    <button class="button is-link is-pulled-right">Dodaj film</button>
   </div>
 </form>
 
@@ -55,10 +52,7 @@
   import AutoComplete from 'simple-svelte-autocomplete';
   import getGenres from '../utils/getGenres';
 
-  let year,
-    selectedGenre,
-    rating;
-
+  let year, selectedGenre, rating;
 
   function submit() {}
 </script>
