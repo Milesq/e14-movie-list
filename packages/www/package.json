@@ -6,8 +6,8 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "serve": "parcel serve src/index.html --open",
-    "build": "parcel build src/index.html --no-source-map",
+    "serve": "parcel serve public/* --open http://localhost:1234/index.html",
+    "build": "parcel build public/* --no-source-maps",
     "lint": "yarn lint:js:fix && yarn lint:style:fix && yarn prettier",
     "lint:js": "eslint . --ext .js,.svelte",
     "lint:js:fix": "eslint . --ext .js,.svelte --fix",
