@@ -35,9 +35,7 @@ async function resolver(parent, args) {
     )
   }
 
-  return {
-    title: 'Hello World',
-  }
+  return args.input
 }
 
 module.exports = { input, resolver }
