@@ -45,6 +45,24 @@
         </a>
       </div>
     </div>
+
+    <div class="panel is-hidden-desktop" class:is-hidden={!hamburgerIsActive}>
+      <a use:link href="/movies" class="panel-block">
+        Pokaż wszystko
+      </a>
+
+      <div class="panel-block pl-1 pt-1">
+        <span class="is-size-7 has-text-primary">
+          Według gatunku:
+        </span>
+      </div>
+
+      {#each $genres as genre}
+        <a use:link href="/movies/{genre}" class="panel-block">
+          {genre}
+        </a>
+      {/each}
+    </div>
   </nav>
 </div>
 
