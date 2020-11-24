@@ -3,6 +3,25 @@ const shuffle = require('lodash.shuffle')
 const Movie = require('../../model/movie')
 
 const schema = gql`
+  input ComparisonParams {
+    is: String
+    "are strings equal"
+    equal: Int
+    "is field euqal to the number"
+    gt: Int
+    "is greater than"
+    lt: Int
+    "is lower than"
+    contain: String
+  }
+
+  input MovieWhereParams {
+    title: ComparisonParams
+    genre: ComparisonParams
+    rating: ComparisonParams
+    year: ComparisonParams
+  }
+
   type Movie {
     title: String!
     genre: String!

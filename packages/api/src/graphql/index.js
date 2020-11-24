@@ -17,7 +17,12 @@ const schema = gql`
   }
 
   type Query {
-    movie(limit: Int, sortBy: MovieField, order: Direction): [Movie!]
+    movie(
+      limit: Int
+      where: MovieWhereParams
+      sortBy: MovieField
+      order: Direction
+    ): [Movie!]
     genre: [Genre!]!
   }
 
