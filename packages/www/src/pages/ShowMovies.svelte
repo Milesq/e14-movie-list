@@ -28,18 +28,40 @@
   let movies = [];
 
   onMount(() => {
-    req(gql`
+    const category = params.category || '';
+
+    const myData = gql`
+      fragment MyData on Movie {
+        title
+        year
+        rating
+        plot
+        poster
+        awards
+      }
+    `;
+
+    let query = gql`
+      ${myData}
       query {
         movie {
-          title
-          year
-          rating
-          plot
-          poster
-          awards
+          ...MyData
         }
       }
-    `).then(({ movie }) => {
+    `;
+
+    if (category) {
+      query = gql`
+      ${myData}
+        query($category: String!) {
+          movie(where: { genre: { is: $category } }) {
+            ...MyData
+          }
+        }
+      `;
+    }
+
+    req(query, { category }).then(({ movie }) => {
       movies = movie;
     });
   });
