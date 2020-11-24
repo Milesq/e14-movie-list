@@ -21,9 +21,7 @@
               on:click={showAll}
               class="button is-transitioned is-pulled-right	mt-3 is-capitalized is-outlined is-inverted is-success">
               <span>Przeglądaj wszystkie</span>
-              <span class="icon">
-                <i class="fas fa-arrow-right"></i>
-              </span>
+              <span class="icon"> <i class="fas fa-arrow-right" /> </span>
             </button>
           </article>
         </div>
@@ -34,12 +32,19 @@
               Zapoznaj się z filmem docenionym przez krytyków!
             </p>
             <div class="content">
-              <div class="hero poster" style="background-image: url({randomMovie.poster})"></div>
+              <div
+                class="hero poster"
+                style="background-image: url({randomMovie.poster})" />
               <h3 class="title">{randomMovie.title}</h3>
               <div class="subtitle">
-                Gatunki: {randomMovie.genre} <br>
-                Ocena: {randomMovie.rating}/5 <br>
-                Nagrody: {randomMovie.awards}
+                Gatunki:
+                {randomMovie.genre}
+                <br />
+                Ocena:
+                {randomMovie.rating}/5
+                <br />
+                Nagrody:
+                {randomMovie.awards}
               </div>
 
               <p>{randomMovie.plot}</p>
@@ -58,7 +63,7 @@
   import CategoryExplorer from './CategoryExplorer.svelte';
   import req, { gql } from '../utils/graphqlClient';
 
-  let randomMovie = {}
+  let randomMovie = {};
 
   function showAll() {
     push('/movies');
@@ -78,7 +83,9 @@
       }
     `;
 
-    const { movie: [movie] } = await req(randomMovieQuery);
+    const {
+      movie: [movie],
+    } = await req(randomMovieQuery);
 
     randomMovie = movie;
   });

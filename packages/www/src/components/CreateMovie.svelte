@@ -53,9 +53,7 @@
     <button
       class="is-transitioned button is-success is-outlined is-inverted is-capitalized is-pulled-right">
       <span>Dodaj film</span>
-      <span class="icon">
-        <i class="fas fa-plus"></i>
-      </span>
+      <span class="icon"> <i class="fas fa-plus" /> </span>
     </button>
   </div>
 </form>
