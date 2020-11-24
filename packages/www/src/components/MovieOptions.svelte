@@ -38,7 +38,7 @@
               <h3 class="title">{randomMovie.title}</h3>
               <div class="subtitle">
                 Gatunki: {randomMovie.genre} <br>
-                Ocena: {randomMovie.rating} <br>
+                Ocena: {randomMovie.rating}/5 <br>
                 Nagrody: {randomMovie.awards}
               </div>
 
