@@ -115,6 +115,44 @@ describe('List getting', () => {
       expect(movie[0].title).toBe('RANDOMIZED')
     })
   })
+
+  describe('where `field`', () => {
+    it('is equal', async () => {
+      const moviesQuery = gql`
+        query {
+          movie(where: { year: { equal: 2002 } }) {
+            title
+          }
+        }
+      `
+
+      const {
+        data: { movie },
+      } = await query({ query: moviesQuery })
+
+      expect(movie.length).toBe(1)
+      expect(movie[0].title).toBe('Revenge of the Sith')
+    })
+
+    it('is greater than', async () => {
+      const moviesQuery = gql`
+        query {
+          movie(where: { year: { gt: 2005 } }) {
+            title
+          }
+        }
+      `
+
+      const {
+        data: { movie },
+      } = await query({ query: moviesQuery })
+
+      expect(movie.map(({ title }) => title)).toEqual([
+        'Phantom Meance',
+        'Attack of the Clone',
+      ])
+    })
+  })
 })
 
 const pick = key => obj => obj[key]
