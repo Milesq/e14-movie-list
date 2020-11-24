@@ -33,9 +33,17 @@
             <p class="subtitle">
               Zapoznaj się z filmem docenionym przez krytyków!
             </p>
-            <figure class="image is-4by3">
-              <img src="https://picsum.photos/400/300" alt="" />
-            </figure>
+            <div class="content">
+              <div class="hero poster" style="background-image: url({randomMovie.poster})"></div>
+              <h3 class="title">{randomMovie.title}</h3>
+              <div class="subtitle">
+                Gatunki: {randomMovie.genre} <br>
+                Ocena: {randomMovie.rating} <br>
+                Nagrody: {randomMovie.awards}
+              </div>
+
+              <p>{randomMovie.plot}</p>
+            </div>
           </article>
         </div>
       </div>
@@ -44,13 +52,36 @@
 </div>
 
 <script>
+  import { onMount } from 'svelte';
   import { push } from 'svelte-spa-router';
   import CreateMovie from './CreateMovie.svelte';
   import CategoryExplorer from './CategoryExplorer.svelte';
+  import req, { gql } from '../utils/graphqlClient';
+
+  let randomMovie = {}
 
   function showAll() {
     push('/movies');
   }
+
+  onMount(async () => {
+    const randomMovieQuery = gql`
+      query {
+        movie(order: RANDOM, limit: 1) {
+          title
+          genre
+          poster
+          rating
+          plot
+          awards
+        }
+      }
+    `;
+
+    const { movie: [movie] } = await req(randomMovieQuery);
+
+    randomMovie = movie;
+  });
 </script>
 
 <style lang="scss">
@@ -63,8 +94,12 @@
     }
   }
 
-  img {
+  .poster {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     border-radius: 4px;
     box-shadow: 1px 1px 3px -2px black;
+    height: 40vh;
   }
 </style>
