@@ -35,3 +35,10 @@
   $: src = img || emptyImage;
   $: shortPlot = plot.slice(0, 150) + (plot.length > 150? '...' : '');
 </script>
+
+<style>
+  img:hover {
+    transform: scale(1.05);
+    transition: .8s transform ease;
+  }
+</style>

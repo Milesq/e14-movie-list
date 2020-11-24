@@ -1,16 +1,18 @@
 <MainNav />
-<div class="container pt-6">
+<div class="container pt-6 px-4">
   <main class="columns">
     {#each movies as {poster, title, year, plot, awards, rating}}
-      <MovieTile
-        img={poster}
-        {title}
-        {year}
-        {plot}
-        {rating}
-        {awards}
-        className="card pb-3 column is-3"
-      />
+      <div class="column is-6-tablet is-4-desktop is-3-widescreen">
+        <MovieTile
+          img={poster}
+          {title}
+          {year}
+          {plot}
+          {rating}
+          {awards}
+          className="card pb-3"
+        />
+      </div>
     {/each}
   </main>
 </div>
@@ -42,3 +44,9 @@
     });
   });
 </script>
+
+<style>
+  :global(html) {
+    background: #f5f5f5;
+  }
+</style>
