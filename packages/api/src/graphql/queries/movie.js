@@ -45,7 +45,16 @@ const schema = gql`
   }
 `
 
-const resolver = async (parent, { limit, sortBy, order = 'ASC' }) => {
+const is = (a, b) => a == b
+const comparisonParamsQualifiers = {
+  is,
+  equal: is,
+  gt: (movie, search) => movie > search,
+  lt: (movie, search) => movie < search,
+  contain: (movie, search) => movie.search(search) !== -1,
+}
+
+const resolver = async (parent, { where, limit, sortBy, order = 'ASC' }) => {
   let movies = await Movie.find()
   const orderFn = {
     ASC: (a, b) => a > b,
@@ -70,7 +79,17 @@ const resolver = async (parent, { limit, sortBy, order = 'ASC' }) => {
   }
 
   if (limit) {
-    return movies.slice(0, limit)
+    movies = movies.slice(0, limit)
+  }
+
+  if (where) {
+    Object.entries(where).forEach(([fieldName, filter]) => {
+      const [[param, val]] = Object.entries(filter)
+
+      movies = movies.filter(movie => {
+        return comparisonParamsQualifiers[param](movie[fieldName], val)
+      })
+    })
   }
 
   return movies
